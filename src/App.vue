@@ -1,28 +1,46 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container-fluid">
+    <app-navbar></app-navbar>
+    <app-blog v-bind:blogs="blogs"></app-blog>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BlogsVue from "./components/Blogs.vue";
+import NavbarVue from './components/Navbar.vue';
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    "app-blog": BlogsVue,
+    "app-navbar": NavbarVue
+  },
+  data(){
+    return {
+      blogs: [
+        {
+          title: "Consectetur adipisicing elit",
+          link: "/Consectetur-adipisicing-elit",
+          body:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque natus sed hic? Id, rerum consequatur? Enim voluptates natus corporis recusandae non harum nemo. Saepe eaque animi sapiente pariatur sunt ipsam."
+        },
+        {
+          title: "Lorem ipsum dolor sit amet",
+          link: "/Lorem-ipsum-dolor-sit-amet",
+          body:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque natus sed hic? Id, rerum consequatur? Enim voluptates natus corporis recusandae non harum nemo. Saepe eaque animi sapiente pariatur sunt ipsam."
+        },
+        {
+          title: "Doloremque natus sed hic",
+          link: "/Doloremque-natus-sed-hic",
+          body:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque natus sed hic? Id, rerum consequatur? Enim voluptates natus corporis recusandae non harum nemo. Saepe eaque animi sapiente pariatur sunt ipsam."
+        }
+      ]
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "./main.css";
 </style>
